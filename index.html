@@ -15,7 +15,6 @@
 <link rel="apple-touch-icon" href="https://getbootstrap.com//docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="https://getbootstrap.com//docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="https://getbootstrap.com//docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="https://getbootstrap.com//docs/5.2/assets/img/favicons/manifest.json">
 <link rel="mask-icon" href="https://getbootstrap.com//docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
 <link rel="icon" href="https://getbootstrap.com//docs/5.2/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#712cf9">
@@ -83,14 +82,14 @@
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="https://getbootstrap.com//docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
       <h2>Lista de Compras</h2>
    </div>
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Resumen</span>
-            <span class="badge rounded-pill text-bg-danger">0</span>
+            <span class="badge rounded-pill text-bg-danger" id="resumen">0</span>
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -111,18 +110,21 @@
         </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Agregar Productos</h4>
+          <div class="alert alert-danger" id="alertado" role="alert" style="display: none;">
+              <ul></ul>
+          </div>
           <form class="needs-validation"  id="form-products" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="Name">Nombre</label>
-                <input type="text" class="form-control" id="Name" placeholder="Awita" value="" required>
+                <input type="text" minlength="2" class="form-control" id="Name" placeholder="Awita" value="" required>
                 <div class="invalid-feedback">
                   Nombre inválido
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="Number">Cantidad</label>
-                <input type="text" class="form-control" id="Number" placeholder="1" value="" required>
+                <input type="number" min="1" class="form-control" id="Number" placeholder="1" value="" required>
                 <div class="invalid-feedback">
                  Cantidad inválida
                 </div>
