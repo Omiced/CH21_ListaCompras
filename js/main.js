@@ -12,9 +12,9 @@ let totalProductos = 0;
 let totalPrecio = 0;
 console.log(formProducts);
 
-const generarPrecio = function (cantidad) {
+const generarPrecio = function () {
   const precio = Math.random() * 100;
-  return precio.toFixed(2) * cantidad;
+  return precio.toFixed(2);
 };
 
 const renderProduct = function (nombre, cantidad, precio) {
@@ -55,11 +55,11 @@ formProducts.addEventListener("submit", (e) => {
   validarProducto(productName.value);
   const nombre = productName.value;
   const cantidad = +productQuantity.value;
-  const precio = generarPrecio(cantidad);
+  const precio = +generarPrecio();
   id++;
   totalProductos += cantidad;
-  totalPrecio += precio;
+  totalPrecio += precio * cantidad;
   renderProduct(nombre, cantidad, precio);
   changeValues(totalProductos, totalPrecio);
-  resumenEl.textContent = totalProductos;
+  resumenEl.textContent = id;
 });
