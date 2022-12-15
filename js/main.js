@@ -7,6 +7,7 @@ const totalProductosEl = document.getElementById("productos-total");
 const totalPrecioEl = document.getElementById("precio-total");
 const resumenEl = document.getElementById("resumen");
 const alertEl = document.getElementById("alertado");
+const rmvBtn = document.getElementById("btn-remove-all");
 let productosList = [];
 let id = 0;
 let totalProductos = 0;
@@ -111,4 +112,15 @@ window.addEventListener("load", (e) => {
     totalPrecio = tmpTotalpre;
     changeValues(totalProductos, totalPrecio.toFixed(2));
   }
+});
+
+rmvBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  localStorage.clear();
+  id = 0;
+  totalProductos = 0;
+  totalPrecio = 0;
+  changeValues(totalProductos, totalPrecio);
+  resumenEl.textContent = id;
+  productsContainerEl.innerHTML = "";
 });
